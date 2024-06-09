@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f1e9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #4a4a4a;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff8dc;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #6b8e23;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #556b2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form action="/admin/updateproduct/<%= product.id %>" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= product.name %>" required>
+        
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="organic" <%= product.category === 'organic' ? 'selected' : '' %>>Organic</option>
+            <option value="fresh" <%= product.category === 'fresh' ? 'selected' : '' %>>Fresh</option>
+            <option value="bestseller" <%= product.category === 'bestseller' ? 'selected' : '' %>>Bestseller</option>
+        </select>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" value="<%= product.price %>" required>
+        
+        <button type="submit">Update Product</button>
+    </form>
+</body>
+</html>

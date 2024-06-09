@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f4f1e9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff8dc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            margin-bottom: 5px;
+            color: #4a4a4a;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #6b8e23;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #556b2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Product</h1>
+    <form action="/admin/addproductpost" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="image">Product Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" class="form-control" required>
+        
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="organic">Fruits</option>
+            <option value="fresh">Vegetables</option>
+            <option value="bestseller">Bestseller</option>
+        </select>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+        
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>

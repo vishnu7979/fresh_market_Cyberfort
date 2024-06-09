@@ -1,0 +1,13 @@
+.container.w-25.border.py-5{
+  margin-top: 100px;
+  background-color:slategrey;
+   
+}
+
+.btn.btn-success.rounded-pill{
+  margin-top: 25px;
+}
+
+#span{
+  font-size: .8rem;   
+}
